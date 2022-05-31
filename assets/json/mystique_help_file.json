@@ -1,0 +1,1682 @@
+{
+  "HomeData": [
+    {
+      "step_title": "BenchVue - Advanced Battery Test and Emulation Help",
+      "step_desc": "This Help file describes how to use the BenchVue Advanced Battery Test and Emulation application along with your Keysight N6705 DC Power Analyzer, N6700C Modular Power System, N7900 Advanced Power System, and RP7900 Regenerative Power System. The focus of this Help file is to provide a straight-forward way to learn how to use this application."
+    },
+    {
+      "step_title": "Supported Models",
+      "step_desc": "   • DC Power Analyzer: Keysight N6705A, N6705B, N6705C\n   • Modular Power System: Keysight N6700C, N6701C, N6702C\n   • Advanced Power System : Keysight N7950A, N7951A, N7952A, N7953A, N7954A, N7970A, N7971A, N7972A, N7973A, N7974A, N7976A, N7977A, N7953ALG\n   • Regenerative Power System (high voltage): Keysight RP7951A, RP7952A, RP7953A, RP7961A, RP7962A, RP7963A, RP7951AT, RP7952AT, RP7953AT, RP7961AT, RP7962AT. RP7963AT \n   •Regenerative Power System (high current): Keysight RP7931A, RP7932A, RP7933A, RP7935A, RP7936A, RP7941A, RP7942A, RP7943A, RP7945A, RP7946A\n   •Regenerative Power System (PV-mode) Keysight RP7972A, RP7973A"
+    },
+    {
+      "step_title": "System Requirements ",
+      "step_desc": "System requirements are as follows:\n\n - Computer Operating Systems:\n       • Windows 10 - 32-bit and 64-bit (Professional, Enterprise, Education, Home versions)\n       • Windows 8 - 32-bit and 64-bit (Professional, Enterprise, Core versions)\n       • Windows 7 - SP1 and later, 32-bit and 64-bit (Professional, Enterprise, Education, Home Premium versions)\n\n - Computer Hardware:\n\n Windows 10 Windows 8, and Windows 7\n\n       • Processor - 4 Cores (8 cores or greater recommended for Multi-operation)\n       • RAM - 8 GB for 32-bit or 8 GB for 64-bit (8 GB or greater recommended for Multi-operation)\n       • Disk storage must exceed 3 GB (the operation will stop if disk storage is under 3 GB)\n\n - Peripheral Software Libraries Used\n       • Microsoft .Net Framework 4.6.2\n       • Keysight Communication Fabric 2.2.22112.11724\n       • Keysight IO Libraries 18.1.23218\n       • Keysight Host Processor Platform 5.0 (5.0.23218.12020)\n       • CCL_Licensing 5.3 (5.3.0.1025)\n       • WibuKey USB Driver\n\n - Supported Interfaces:\n       • Keysight 82350B GPIB Interface\n       • Keysight 82357A USB/GPIB Interface\n       • Keysight E5810A LAN/GPIB Gateway\n       • National Instruments GPIB card (requires NI-488.2 (Win32) version 1.6 or later)\n       • LAN\n       • USB (not recommended for long term data-logging)\n\n  - BenchVue Advanced Battery Test and Emulation Limitations:\n        • The arbitrary Waveform generator  output frequency is limited to 10 kHz.\n        • Data logger measurements are limited to either voltage or current on N6705 power modules that do not have simultaneous measurement capability (refer to http://cp.literature.keysight.com/litweb/pdf/N6705-90001.pdf)."
+    },
+    {
+      "step_title": "Additional Information",
+      "step_desc": "For documentation and additional information on the DC Power Analyzer, Advanced Power System, and Regenerative Power System go to www.keysight.com/find/N6705, www.keysight.com/find/N6700, www.keysight.com/find/N7900, or www.keysight.com/find/RP7900.\n"
+    },
+    {
+      "step_title": "Contact Keysight Technologies",
+      "step_desc": "You can contact Keysight Technologies for warranty, service, or technical support.\n\n      • In the United States: 800 829 4844\n      • In Europe: 31 20 547 9999\n      • In Japan: 81 426 56 7832\n      \nUse www.keysight.com/find/assist for information on contacting Keysight worldwide, or contact your Keysight Technologies Representative.    For documentation and additional information on the DC Power Analyzer, Advanced Power System, and Regenerative Power System go to www.keysight.com/find/N6705, www.keysight.com/find/N6700, www.keysight.com/find/N7900, or www.keysight.com/find/RP7900.\n"
+    }
+  ],
+  "data": [
+    {
+      "topic": "Getting Started",
+      "subTopic": [
+        {
+          "topic": "Get Started",
+          "content": {
+            "title": "Getting Started",
+            "description": "This topic describes how to quickly get started using the BenchVue Advanced Battery Test and Emulation application.\n\nRun the application by clicking on its icon , or selecting Start/Keysight BenchVue Battery Emulator .",
+            "steps": [
+              {
+                "step_title": "The Main Window",
+                "step_description": "Below shows the main window.",
+                "figure1": "images/getStarted.jpg",
+                "step_desc": "1. Instrument control area - lets you operate the instrument using the controls on this display. \n2. Settings area - lets you configure the settings of the selected output and operation (no operation shown). \n3. Display area - displays the battery chart information for the selected operating mode. \n4. Window controls - lets you control the way the application is displayed. Also accesses Help. \n5. Start buttons - lets you start the operation of the selected output, or all operations when multiple outputs are configured. \n6. Output Configuration area - lets you select and configure the output or outputs of the connected instrument. \n7. Operating Icons - only displayed at start-up. Lets you select an operation. \n8. Application controls - lets you configure settings, save instrument states, and export measurement data."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Overview",
+          "content": {
+            "title": "Overview",
+            "description": "This topic describes the basic process of setting up and using the BenchVue Advanced Battery Test and Emulation application. Go to Getting Started  for a description of how to quickly get started using the Advanced Battery Test and Emulation application.",
+            "steps": [
+              {
+                "step_title": "Description",
+                "step_description": "The BenchVue Advanced Battery Test and Emulation application has three primary functions: battery charge/discharge, battery profiling, and battery emulation. The emulation operation is bi-directional, which lets you emulate a battery when in normal use. In a normal use case a battery is discharged and charged repeatedly - as when a cell phone is either discharging the battery or charging it when connected to the charger. The discharge or charge operation is determined by the direction of the current flow of the device that is connected to the battery.",
+                "figure1": "images/blank.jpg",
+                "step_desc": "The application also lets you run different operations for each channel. This is because the application keeps maintains an independent set of configurations for each channel on each instrument. For example, you can run an emulation operation in channel 1 and a discharge profiling operation in channel 3. The application also provides flexible start and stop control for single and multiple channels. There is also a summary panel to quickly view the running progress of each test. The summary panel also provides a quick start/stop control for each channel. \n\nYou can control the start/stop of each channel easily from the Summary Panel. The Summary Panel not only provide better visualization, it also provides a quick way of start/stop control for each channel. This design provides convenience when running battery tests."
+              },
+              {
+                "step_title": "Process flowchart ",
+                "step_description": "As shown in the following flowchart, there are two ways that you can use the Advanced Battery Test and Emulation application to emulate a battery.",
+                "figure1": "images/processFlowchart.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "If you have a battery available from which you can create an Emulation profile",
+                "step_description": "The easiest way to use the Advanced Battery Test and Emulation application is if you have an actual battery that you want to emulate. You can use the Advanced Battery Test and Emulation application to create a profile that accurately represents the actual battery. Both discharging and charging profiles can be created. The battery that you want to emulate must be new or fully charged. \n\nAs shown in the flowchart, you must connect the battery to the source/measurement equipment that you are using. The following figure shows a battery connected to a N6705C with N6782A modules installed.",
+                "figure1": "images/equipmentConnection.jpg",
+                "step_desc": "The first step in emulating the battery is to create the discharge profile. This is important because the battery must first be fully discharged before you can create the charging profile. Follow the directions under “Discharge Settings” to set up the Advanced Battery Test and Emulation application to discharge the battery. Note that the completed discharge information is stored inside the BT application and is automatically loaded into the Profile function. \n\nOnce the battery has been discharged, you can create a charge profile. The equipment connections are the same as for the discharge profile. Follow the directions under “Charge Settings” to set up the Advanced Battery Test and Emulation application to charge the battery. Note that during the charging profile the application also calculates the internal resistance of the battery by briefly shorting the battery terminals throughout the charging cycle and taking a current measurement. The completed charge information is stored inside the application and is automatically loaded into the Profile function. \n\nThe next step is to complete the profile model. Follow the direction under “Discharge Profile Settings” and “Charge Profile Settings”. This includes information such as Capacity Rating, Current Pulse Width, Ri Pulse Width, and additional cut-off condition settings. When complete, save the completed charge/discharge profile under a filename for future use."
+              },
+              {
+                "step_title": "",
+                "step_description": "As shown in the flowchart, you must connect the source/measurement equipment to the device in which you are emulating the battery. The following figure shows the N6705C with N6782A modules connected to a cell phone.",
+                "figure1": "images/equpConnectionsCellPhone.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "If you do not have a battery available from which you can create an Emulation profile",
+                "step_description": "You can also create a battery emulation profile, by manually entering the battery charge and discharge information into an Excel .csv file. The .csv file must have a minimum of 100 data rows. \n\nThe following column heading information is required for each of the 100 data rows or steps. The heading row is row 1. The remaining 100 data rows of three columns follow row 1. The charge battery model is illustrated.",
+                "figure1": "images/chargeBatteryModel.jpg",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "1. Install",
+          "content": {
+            "title": "Step 1. Install and Run the Application",
+            "description": "NOTE:  Before running the BenchVue Advanced Battery Test and Emulation application, you must have installed and connected the Keysight N6705 DC Power Analyzer, N7900 Advanced Power System, or RP7900 Regenerative Power System to a computer with the appropriate interface cable. You must also have the appropriate interface card or IO libraries installed and configured. If you are using an Keysight interface card, you must have the appropriate VISA library drivers installed.",
+            "steps": [
+              {
+                "step_title": "To Install the application:",
+                "step_description": "     • Open Keysight BenchVue and select the BenchVue Advanced Battery Test and Emulation application from the list of applications found under the Home folder at the top of the page.\n      • Follow the directions on the screen to install the application. ",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "To Run the BenchVue Advanced Battery Test and Emulation application:",
+                "step_description": "     • Click on its desktop icon:",
+                "figure1": "images/desktopIcon.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "     You can also click on the Start button and select: Keysight BenchVue Advanced Battery Test and Emulation",
+                "figure1": "images/windowsStart.jpg",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "2. Set Up Instrument",
+          "content": {
+            "title": "Step 2. Set Up the Instrument",
+            "description": "Connect the selected battery to your instrument in order to create the battery profile.\n\nConnect the output leads to the battery terminals as shown. When creating the battery profile, also connect the remote sense leads to the battery terminals. Refer to the applicable instrument manuals for complete wiring instructions.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "The following figure shows the connections for N6705 DC Power Analyzers.",
+                "figure1": "images/n6705Connections.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "The following figure shows the connections for N6700 DC Power Analyzers.",
+                "figure1": "images/n6700Connections.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "The following figure shows the connections for N7900 Advanced Power Systems.",
+                "figure1": "images/n7900Connections.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "The following figure shows the connections for RP7900 Regenerative Power Systems.",
+                "figure1": "images/rp7900Connections.jpg",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "3. Connect to Instrument",
+          "content": {
+            "title": "Step 3. Connect to Your Instrument ",
+            "description": "You can connect up to four instruments which are labeled A, B, C, or D. To connect to your instrument...",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "   • Click the Instrument Connection tab on the left side of the main window to make your connections to the instrument you wish to control.\n   • Then select Search and Connect to Instrument to search for all the instruments on the network and VISA resources.",
+                "figure1": "images/instrumentConnection.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "   • If your instrument is not found, you can manually configure the instrument by selecting the More icon ",
+                "figure1": "images/moreIcon.jpg",
+                "step_desc": "    , then selecting New Manual Configure. If using VISA, provide the VISA resource descriptor.  If using the Sockets IO library, provide the IP address or Hostname. Click Test Connection to verify the connection and add the instrument to the list. "
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/manualConfig.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "   • Once your instrument appears in the instrument search area, click on the \"plug\" icon to automatically connect to \"A\". If \"A\" is already taken, select the down-arrow on the right side to connect to a different location Connect to B. ",
+                "figure1": "images/instrumentList.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "   • The connected instrument is now removed from the available instruments list. Use the downarrow next to an instruments to connect up to three additional instrument to the application. ",
+                "figure1": "images/connectedInstrument.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "   • To disconnect a connected instrument, right-click on the instrument (A, B, C, or D), then select Disconnect. Alternatively, you can also select the More icon, then select Disconnect Highlighted Instrument.",
+                "figure1": "images/disconnectInstrument.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "   • To view a representation of the front panel of your instrument select the Instrument Control tab. This lets you view what is happening on the front panel of the instrument while the specified operation is running. Refer to Front Panel Control for more information. ",
+                "figure1": "images/frontPanel.jpg",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "4. Select Instrument",
+          "content": {
+            "title": "Step 4. Configure the Discharge Operation",
+            "description": "",
+            "steps": [
+              {
+                "step_title": "To select and configure the Discharge operation...",
+                "step_description": "     • You can select the Discharge operation from the Settings area, or click on the Discharge/Charge icon in the display area.",
+                "figure1": "images/configureChargeDischarge.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "or",
+                "figure1": "images/dischargeChargeIcon.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "     • Specify the discharge settings for the battery that you have connected to your instrument. In this example you are creating a CD Arb waveform that will be used to create the profile for your battery emulator. Specify the following parameters for the discharge operation. ",
+                "figure1": "images/dischargeSettings.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "5. Start",
+          "content": {
+            "title": "Step 5. Start the Discharge Operation ",
+            "description": "",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": " • Press the Start button on the bottom of the screen to run the Discharge operation. The arrow icon indicates the start action. Use the Start All button to start test operations on multiple channels.",
+                "figure1": "images/startOperation.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": " • Click on the Run Status area on the bottom of the screen provides a quick view of the running progress of tests that are running on multiple channels. It also provides a quick start/stop control for each channel.",
+                "figure1": "images/runStatus.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": " • The instrument will discharge the battery according to the specified parameters. When complete, the display will show the resultant discharge profile of the battery.",
+                "figure1": "images/resultantDischargeProfile.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": " • The Stop buttons stop the operation. The square icon indicates the stop action.",
+                "figure1": "images/stopOperation.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "NOTE: You can copy any display image to the clipboard. In the lower right corner of the display, select the Export icon. Click on the first two icons to save the display to the clipboard, either as is or with a white background. Refer to Starting and Stopping for more information.",
+                "figure1": "images/exportIcon.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "6. Save",
+          "content": {
+            "title": "Step 6. Save and Export the Display Data",
+            "description": "All graph data in the display can be saved to a file on your PC, or exported to a .csv file. See Saving and Loading Display Data for more information. \n\nNOTE: Exported .csv files can be imported into a database or spreadsheet.",
+            "steps": [
+              {
+                "step_title": "To save the display to a file:",
+                "step_description": "     • In the lower right corner of the display, select the Export icon to save the display to a file. Click the file icon on the right.",
+                "figure1": "images/exportIcon.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "     • Specify a filename and type. Accept the default export path or specify a different location where you will save the file.",
+                "figure1": "images/exportSS.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "To export the display data: ",
+                "step_description": "     • As shown above, in the lower right corner of the display, select the Export icon to save the display to a file. Click the CSV icon. Accept the default export path or specify a different location where you will save the file. Specify the export options. If multiple outputs and traces are displayed, you can specify the trace data that you wish to export. ",
+                "figure1": "images/exportBatteryChartData.png",
+                "step_desc": "NOTE: The Advanced and Regenerative Power Systems only contain waveform data in Output 1."
+              },
+              {
+                "step_title": "",
+                "step_description": "     • The following example shows the data from an exported file opened in Microsoft Excel. ",
+                "figure1": "images/exportSS.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "7. Profiler",
+          "content": {
+            "title": "Profiler Operation Use Cases",
+            "description": "This topic describes how to use the Profiler Operation.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "Figure below shows the Flowchart of using the Profiler Operation.",
+                "figure1": "images/ProfilerUseCase.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Steps by steps while using Profiler Operation:",
+                "figure1": "images/blank.jpg",
+                "step_desc": "After Connected to Instrument, "
+              },
+              {
+                "step_title": "  1. Choose Profiler Mode",
+                "step_description": "     User needs to choose Profiler Mode to start with the operation",
+                "figure1": "images/profilerMode.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  2. Choose Function",
+                "step_description": "     There is two function for Profiler, which are Discharge and Charge function.",
+                "figure1": "images/profilerFunction.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  3. Load Profile",
+                "step_description": "     User can load existing Profile or sample Profile and proceed to Start operation.",
+                "figure1": "images/profileLoad.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  4. New Profile",
+                "step_description": "     New Profile will reset all the settings to default value.",
+                "figure1": "images/profileNew.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   5. Profile Settings",
+                "step_description": "      Lets user specify the new profile name, location, and number of steps",
+                "figure1": "images/profileSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   6. Charge Settings",
+                "step_description": "      Lets user specify the charge settings for the new profile, or adjust the settings of the existing profile",
+                "figure1": "images/profileChargeSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   7. Discharge Settings",
+                "step_description": "      Lets user specify the discharge settings for the new profile, or adjust the settings of the existing profile.",
+                "figure1": "images/profileDischargeSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   8. Discharge Mode",
+                "step_description": "      Displays the discharge operating mode. Three modes including Constant, Power and Resistance.",
+                "figure1": "images/profilerPowerDischargeMode.png",
+                "step_desc": "      • Figure above shows Power Discharge Mode"
+              },
+              {
+                "step_title": "",
+                "step_description": "     • Resistance Discharge Mode",
+                "figure1": "images/profilerResistanceDischargeMode.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "     • Current Discharge Mode",
+                "figure1": "images/profilerCurrentDischargeMode.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   9. Cut-off Condition",
+                "step_description": "      Cut-Off condition for Discharge includes Cut-Off voltage and Consumed Capacity, while Charge function includes Stopping Current, Charged Capacity and Both",
+                "figure1": "images/withTemp.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   10. Instrument Settings",
+                "step_description": "       Allows User to adjust Instrument settings like Connection Type.",
+                "figure1": "images/profilerInstrumentSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   11. Datalog Settings",
+                "step_description": "      A data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. It includes File Name, Folder Location and File Save Rate",
+                "figure1": "images/datalogSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   12. Start Operation",
+                "step_description": "      Start Emulation Operation by clicking the Start button",
+                "figure1": "images/startOperation.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   13. Stop Operation",
+                "step_description": "      Stop Emulation Operation by clicking the Stop button",
+                "figure1": "images/stopOperation.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "8. Emulation",
+          "content": {
+            "title": "Emulation Operation Use Cases",
+            "description": "This topic describes how to use the Emulation Operation.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "Figure below shows the Flowchart of using the Emulation Operation.",
+                "figure1": "images/EmulationUseCase.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Steps by steps while using Emulation Operation:",
+                "figure1": "images/blank.jpg",
+                "step_desc": "After Connected to Instrument, "
+              },
+              {
+                "step_title": "  1. Choose Emulation Mode",
+                "step_description": "     User needs to choose Emulation Mode to start with the operation",
+                "figure1": "images/emulationMode.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  2. Open Profile",
+                "step_description": "     After choosing Emulation Mode, there will be option to Open Profile(s).",
+                "figure1": "images/openProfile.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  3. Open Profile With or Without Temperature",
+                "step_description": "     When choosing Open Profile(s), User need to choose Profile(s) with temperature or without temperature.",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   • Open Profile(s) Without Temperature:",
+                "step_description": "     Loads maximum one profile only",
+                "figure1": "images/withoutTemp.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "     • Open Profile(s) With Temperature:",
+                "step_description": "      Loads maximum ten profiles",
+                "figure1": "images/withTemp.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  4. Choose Profile(s)",
+                "step_description": "     After choosing Open Profile(s) With Temperature or Without Temperature, User needs to choose Profile(s) from the directory where the profile is located. If User already have own profile(s) after finished Profiling operation, User can choose own Profile(s). Figure below shows example when User choose their own profile and Open Profiler(s) Without Temperature (first picture) and With Temperature (second picture)",
+                "figure1": "images/openProfileExample.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": " ",
+                "step_description": "However if User do not have own profile, you can choose provided Sample Profile(s). Below is example of the Sample Profile(s) directory.",
+                "figure1": "images/sampleProfileEmulation.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   5. Emulation Settings",
+                "step_description": "      Allows User to adjust specific settings in the Emulation profile such as Capacity Rating, Current Limit, Temperature,  Initial State of Charge and Delay before Start. For more information, refer to Battery Emulator Application: Using the Emulation Operation topic.",
+                "figure1": "images/emulationSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   6. Cut-off Condition",
+                "step_description": "      There is two Condition type. User need to select from Cut-off SOC (state of charge), or Cut-off Voltage.",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   • Cut-off SOC (state of charge):",
+                "step_description": "",
+                "figure1": "images/cutOffSoc.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   • Cut-off Voltage:",
+                "step_description": "",
+                "figure1": "images/cutOffVoltage.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   7. Instrument Settings",
+                "step_description": "      Allows User to adjust Instrument settings like Overvoltage and Connection Type.",
+                "figure1": "images/instrumentSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   8. Datalog Settings",
+                "step_description": "      A data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. It includes File Name, Folder Location and File Save Rate",
+                "figure1": "images/datalogSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   9. Start Operation",
+                "step_description": "      Start Emulation Operation by clicking the Start button",
+                "figure1": "images/startOperation.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   10. Stop Operation",
+                "step_description": "      Stop Emulation Operation by clicking the Stop button",
+                "figure1": "images/stopOperation.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "9. Cycler",
+          "content": {
+            "title": "Cycler Operation Use Cases",
+            "description": "This topic describes how to use the Cycler Operation.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "Figure below shows the Flowchart of using the Cycler Operation.",
+                "figure1": "images/CyclerUseCase.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Steps by steps while using Cycler Operation:",
+                "figure1": "images/blank.jpg",
+                "step_desc": "After Connected to Instrument, "
+              },
+              {
+                "step_title": "  1. Choose Cycler Mode",
+                "step_description": "     User needs to choose Cycler Mode to start with the operation",
+                "figure1": "images/cyclerMode.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  2. Load Cycler",
+                "step_description": "     If User already have done Cycler operation before, click Load Cycler to load previous stopped cycler operation and continue where it stopped. Then, you can start operation.",
+                "figure1": "images/loadCycler.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  3. Load Sequence",
+                "step_description": "     Click Load Sequence to load and existing battery cycle sequence. Select the directory where the sequence is located.",
+                "figure1": "images/loadSequence.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "  4. Create New Sequence",
+                "step_description": "     Click on + New Sequence to create a battery cycle sequence. Create a new sequence consist of charge, discharge and rest step.",
+                "figure1": "images/newSequence.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   • Charge",
+                "step_description": "",
+                "figure1": "images/chargeCycle.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   • Discharge",
+                "step_description": "",
+                "figure1": "images/dischargeCycle.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   • Rest",
+                "step_description": "",
+                "figure1": "images/restCycle.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   5. Apply Sequence",
+                "step_description": "      After done with choosing sequence steps, make sure the cycle sequence must have at least Charge/Discharge step to Apply Sequence. If only Rest step is chosen, sequence cannot be applied. ",
+                "figure1": "images/applySequenceYes.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   6. Cycler Settings",
+                "step_description": "      Cycler Settings to adjust specific settings in the cycle sequence.",
+                "figure1": "images/cyclerSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   7. Cut-off Condition",
+                "step_description": "      User can choose None or adjust the Capacity Loss.",
+                "figure1": "images/cutOffConditionCycler.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   8. Datalog Settings",
+                "step_description": "      A data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. It includes File Name, Folder Location and File Save Rate",
+                "figure1": "images/datalogSettings.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   9. Start Operation",
+                "step_description": "      Start Emulation Operation by clicking the Start button",
+                "figure1": "images/startOperation.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "   10. Stop Operation",
+                "step_description": "      Stop Emulation Operation by clicking the Stop button",
+                "figure1": "images/stopOperation.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Simulation",
+          "content": {
+            "title": "Simulation Mode ",
+            "description": "You can use BenchVue Simulation mode to learn how to perform a simple discharge battery emulation using the BenchVue Advanced Battery Test and Emulation application. Open Process Overview for a high-level description of the battery emulation process.",
+            "steps": [
+              {
+                "step_title": "Launching Simulation Mode",
+                "step_description": "Launch Keysight BenchVue in demo mode: \n\n      • Click the Manage",
+                "figure1": "images/manageIcon.png",
+                "step_desc": "icon and then select Enter Demo Mode."
+              },
+              {
+                "step_title": "",
+                "step_description": "     • Then click + Add to add instruments to the demo. Wait for the instrument list to appear.",
+                "figure1": "images/demoMode.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Launch the Advanced Battery Test and Emulation application:      \n\n      • On the Home page, select the Advanced Battery Test and Emulation  icon. This will open the BenchVue Advanced Battery Test and Emulation application.      \n      • Select the Instrument Connection tab to display the Instrument Connection panel.      \n      • Select the Settings tab to display the Settings panel.      \n• Click Search and Connect to Instrument to connect to the simulated N6705C.",
+                "figure1": "images/advancedBatteryTestandEmulation.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Connect the displayed N6705C instrument to an instrument slot:      \n\n•      Click the down arrow next to the plug symbol       \n     • Then select Connect to A.",
+                "figure1": "images/instrumentSlot.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Compare Instruments",
+      "subTopic":[
+        {
+          "topic": "Compare Instruments",
+          "content": {
+            "title": "Compare Supported Instruments Models",
+            "description": "This page is for comparing supported Instrument Models and its characteristics. \n\nThis table below shows the overal comparison between the Instruments based on its characteristics. You can choose to filter which Instruments to be compare.",
+            "tableCompare": [
+              {
+                " ": "Resistance Range \n\n\n\n\n\n\n\n\n\n\n",
+                "Olympus": "N6781:     –40 mΩ to + 1Ω \nN6785:     –40 mΩ to + 1Ω \n\n\n\n\n\n\n\n\n\n",
+                "TITAN ADV": "N69/7950A:     0 to 0.1 Ω \nN69/7951A:     0 to 0.4 Ω \nN69/7952A:     0 to 1.6 Ω \nN69/7953A:     0 to 3.4 Ω \nN69/7954A:     0 to 6.4 Ω \nN69/7970A:    0 to 0.05 Ω \nN69/7971A:     0 to 0.2 Ω \nN69/7972A:     0 to 0.8 Ω \nN69/7973A:     0 to 1.7 Ω \nN69/7974A:      0 to 3.2 Ω \nN69/7976A:     0 to 6.8 Ω \nN69/7977A:    0 to 12.8 Ω",
+                "TITAN HCHV": "RP7931/41A:     0 to 0.098 Ω \nRP7932/42A:     0 to 1.25 Ω\nRP7933/43A:     0 to 0.049 Ω \nRP7935/45A:      0 to 0.625 Ω \nRP7936/46A:     0 to 2.5 Ω \nRP7951/61A:     0 to 25 Ω \nRP7952/62A:     0 to 12.5 Ω \nRP7953/63A:     0 to 50 Ω \nRP7972A:     0 to 69 Ω \nRP7973A:     0 to 277 Ω \n\n"                
+              },
+              {
+                " ": "Resolution \n\n\n\n\n\n\n\n\n",
+                "Olympus": "N/A \n\n\n\n\n\n\n\n\n",
+                "TITAN ADV": "N/A \n\n\n\n\n\n\n\n\n",
+                "TITAN HCHV": "RP7931/41A:     -0.8 μΩ \nRP7932/42A:     9.8 μΩ \nRP7933/43A:     0.4 μΩ \nRP7935/45A:     4.8 μΩ \nRP7936/46A:     19.6 μΩ \nRP7951/61A:     140 μΩ \nRP7952/62A:     70 μΩ \nRP7953/63A:     280 μΩ \nRP7972A:     0.55 mΩ \nRP7973A:     2.2 mΩ"    
+              }
+            ],
+            "tables": [
+              {
+                "title": "\n\nOlympus",
+                "data": [
+                  {
+                    "Olympus": "N6781",
+                    "Resistance Range": "–40 mΩ to + 1Ω"
+                  },
+                  {
+                    "Olympus": "N6785",
+                    "Resistance Range": "–40 mΩ to + 1Ω"
+                  }
+                ]
+              },
+              {
+                "title": "TITAN ADV",
+                "data": [
+                  {
+                    "TITAN ADV": "N69/7950A",
+                    "Resistance Range": "0 to 0.1 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7951A",
+                    "Resistance Range": "0 to 0.4 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7952A",
+                    "Resistance Range": "0 to 1.6 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7953A",
+                    "Resistance Range": "0 to 3.4 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7954A",
+                    "Resistance Range": "0 to 6.4 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7970A",
+                    "Resistance Range": "0 to 0.05 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7971A",
+                    "Resistance Range": "0 to 0.2 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7972A",
+                    "Resistance Range": "0 to 0.8 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7973A",
+                    "Resistance Range": "0 to 1.7 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7974A",
+                    "Resistance Range": "0 to 3.2 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7976A",
+                    "Resistance Range": "0 to 6.8 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7977A",
+                    "Resistance Range": "0 to 12.8 Ω"
+                  },
+                  {
+                    "TITAN ADV": "N69/7971A",
+                    "Resistance Range": "0 to 0.2 Ω"
+                  }
+                ] 
+              },
+              {
+                "title": "TITAN HCHV",
+                "data": [
+                  {
+                    "TITAN HCHV": "RP7931/41A",
+                    "Resistance Range": "0 to 0.098 Ω",
+                    "Resolution": "0.8 μΩ"
+                  },
+                  {
+                    "TITAN HCHV": "RP7932/42A",
+                    "Resistance Range": "0 to 1.25 Ω",
+                    "Resolution": "9.8 μΩ"
+                  },
+                  {
+                    "TITAN HCHV": "RP7933/43A",
+                    "Resistance Range": "0 to 0.049 Ω",
+                    "Resolution": "0.4 μΩ"
+                  },
+                  {
+                    "TITAN HCHV": "RP7935/45A",
+                    "Resistance Range": "0 to 2.5 Ω",
+                    "Resolution": "19.6 μΩ"
+                  },
+                  {
+                    "TITAN HCHV": "RP7951/61A",
+                    "Resistance Range": "0 to 25 Ω",
+                    "Resolution": "140 μΩ"
+                  },
+                  {
+                    "TITAN HCHV": "RP7952/62A",
+                    "Resistance Range": "0 to 12.5 Ω",
+                    "Resolution": "70 μΩ"
+                  },
+                  {
+                    "TITAN HCHV": "RP7953/63A",
+                    "Resistance Range": "0 to 50 Ω",
+                    "Resolution": "280 μΩ"
+                  },
+                  {
+                    "TITAN HCHV": "RP7972A",
+                    "Resistance Range": "0 to 69 Ω",
+                    "Resolution": "0.55 mΩ"
+                  },
+                  {
+                    "TITAN HCHV": "RP7973A",
+                    "Resistance Range": "0 to 277 Ω",
+                    "Resolution": "2.2 mΩ"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Battery Emulator Application",
+      "subTopic": [
+        {
+          "topic": "Configure IO Settings",
+          "content": {
+            "title": "Configure IO Settings",
+            "description": "The Instrument Connection tab lets you establish communication with the DC Power Analyzer and the Advanced and Regenerative Power Systems.\n\nMake sure your instrument is connected to an interface (LAN, USB, GPIB) and turned on.",
+            "steps": [
+              {
+                "step_title": "Step 1.",
+                "step_description": "Click the Instrument Connection tab on the left side of the main window to make your connections to the instrument you wish to control. Then select Search and Connect to Instrument to search for all the instruments on the network and VISA resources. ",
+                "figure1": "images/instrumentConnection.jpg",
+                "step_desc": ""
+
+              },
+              {
+                "step_title": "Step 2.",
+                "step_description": "The application automatically searches to find all the instruments on the network and VISA resources. Once your instrument appears in the instrument search area, click on the \"plug\" icon to automatically connect to \"A\". If \"A\" is already taken, select the down-arrow on the right side to connect to a different location Connect to B. ",
+                "figure1": "images/instrumentList.jpg",
+                "step_desc": "The following information is displayed when you have successfully connected to an instrument:\n   Model Number\n   Serial number\n   Instrument address\n\nIf no instruments are found it during the search, it may be that they must be connected manually.\n"
+              },
+              {
+                "step_title": "Step 3.",
+                "step_description": "Click on the \"more\" icon, then click New Manual Configure to manually connect to an instrument using the VISA or Sockets I/O library. You must have the appropriate interface card  to connect to your instrument manually",
+                "figure1": "images/manualConfig.jpg",
+                "step_desc": "Enter the GPIB address of your instrument in the Address box. Specify if the connection is using VISA or sockets. For VISA libraries provide the VISA resource descriptor. This usually takes the form of \"GPIB0::X::INSTR\". Where X should be substituted with the correct instrument address. For the Sockets IO library, provide the IP address or Hostname. \n\nClick Test Connection to verify the connection and add the instrument to the list."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Using Front Panel Control",
+          "content": {
+            "title": "Front Panel Control",
+            "description": "",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "Click the Instrument Control tab to open the instrument control area. The controls in this area emulate the front panel controls of the actual instruments. ",
+                "figure1": "images/instrumentControlTab.png",
+                "step_desc": "NOTE: The changes made on either interface (the Advanced Battery Test and Emulation application or actual front panel) will be mirrored in the other interface."
+
+              },
+              {
+                "step_title": "N6705 DC Power Analyzer Controls",
+                "step_description": "",
+                "figure1": "images/N6705instrumentControls.png",
+                "step_desc": "Meter - Displays the meter view. Toggles between single output and multiple output views. You can directly enter output voltage and current values in the highlighted Set field using the number keys on your keyboard. \n\nSettings - Displays the settings of the selected output. Toggles between source settings and output delay setting. \n\nProperties - In meter view, displays the meter properties of the selected output. In source settings view, displays the Keysight N6705 ratings. \n\nMenu - Displays the instrument command menu. \n\nBack - Returns to the previous view. \n\nSelect Output 1, 2, 3, 4 - Lets you select an output to control. On, On, On, On - Turns an output on or off. \n\nAll On - Turns all outputs on. \n\nAll Off - Turns all outputs off. \n"
+              },
+              {
+                "step_title": "N6700C Modular Power System Controls",
+                "step_description": "",
+                "figure1": "images/N6700CinstrumentControls.png",
+                "step_desc": "Meter - Displays the meter view. Toggles between single output and multiple output views. You can directly enter output voltage and current values in the highlighted entry field using the number keys on your keyboard. \n\nHelp - Accesses information about the displayed instrument control menu. \n\nChannel - This key selects an output channel. \n\nError - Displays any instrument error messages. \n\nMenu - Displays the instrument command menu. \n\nBack - Returns to the previous view. \n\n^ v < > - Use the arrow keys to navigate to the selections in the command menu. \n\nSelect - Use this key to make selections in the command menu. \n\nVoltage - Opens the output voltage dialog. \n\nCurrent - Opens the output current dialog. \n\nOn/Off - Turns the output on or off. \n"
+              },
+              {
+                "step_title": "N7900 and RP7900 Power System Controls",
+                "step_description": "",
+                "figure1": "images/N7900&RP7900instrumentControls.png",
+                "step_desc": "Meter - Displays the meter view. Toggles between current and power measurements. You can directly enter output voltage and current values in the highlighted entry field using the number keys on your keyboard. \n\nHelp - Accesses information about the displayed instrument control menu. \n\nFunction - This key is not active. \n\nError - Displays any instrument error messages. \n\nMenu - Displays the instrument command menu. \n\nBack - Returns to the previous view. \n\n^ v < > - Use the arrow keys to navigate to the selections in the command menu. \n\nSelect - Use this key to make selections in the command menu. \n\nVoltage - Opens the output voltage dialog. \n\nCurrent - Opens the output current dialog. \n\nOn/Off - Turns the output on or off. \n"
+              },
+              {
+                "step_title": "Front Panel Lock-Out",
+                "step_description": "Note that when the Advanced Battery Test and Emulation application is running an operation (such as profiler, emulation, cycler, etc.) the front panel instrument controls are locked out. When the front panel controls are locked, the front panel display of the N6705 and N6700 instruments will only display the 4-channel view. For all other single-output instruments, the front panel will display the output voltage and current meter mode.",
+                "figure1": "images/blank.jpg",
+                "step_desc": "The front panel will be unlocked when the selected operation has completed."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Using the Discharge/Charge Operation",
+          "content": {
+            "title": "The Discharge/Charge Operation ",
+            "description": "Select the Discharge/Charge operation from the Settings menu or Icon.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/dischargechargeIcon.png",
+                "step_desc": ""
+
+              },
+              {
+                "step_title": "",
+                "step_description": "or",
+                "figure1": "images/dischargechargeSettingsMenu.png",
+                "step_desc": "Then select whether you are performing a Discharge or Charge operation."
+              },
+              {
+                "step_title": "\nThe Discharge/Charge Window",
+                "step_description": "The figure below shows the main window of the Discharge/Charge operation.",
+                "figure1": "images/dischargechargeMainWindow.png",
+                "step_desc": "1. Settings area - lets you select the Discharge/Charge operation. \n\n2. Battery status - displays a \"snapshot\" of the battery parameters when the operation is run. \n\n3. Voltage and Current - charts the battery voltage and current of the operation. You can configure the Current axis to display either Amps or Charge rate. \n\n4. Graph toolbars - lets you zoom in or out of the displayed data. \n\n5. Run Status - displays the run status of the selected instrument outputs. \n\n6. Start or Start All - click Start or Start All to start and display the discharge/charge graph of either the specified instrument output or all outputs. \n\n7. Settings - specify the settings for the discharge or charge operation. \n\n8. State of Charge - charts the state of charge of the operation. You can configure the horizontal axis to display either state of charge in percent, or Capacity in Amp-hours. \n\n9. Data bar - indicates the portion of the data that is visible on the graph (all of the data in this example)."
+              },
+              {
+                "step_title": "\nThe Discharge Operation",
+                "step_description": "Step 1.   In the Settings area on the left side of the window, specify the discharge settings.",
+                "figure1": "images/dischargeSettings.png",
+                "step_desc": "• Reset Settings – resets the settings to the default values. \n\n• Discharge Settings - lets you specify the settings for the discharge operation: \n\n       Discharging Mode - displays the discharge operating mode (default = CC, constant current). \n\n       Discharge Current - specifies the steady-state discharge current. \n\n       Max Battery Voltage - specify the maximum voltage at the battery terminals. \n\nNote The allowable voltage and current settings depend on the operating ranges of the instrument. For example, for the N6781A power module - if you program a voltage limit of 18 V, you cannot program a discharge current greater than 1 A. To program a current of 3 A, the voltage settings must be in the 6 V range. \n\n• Cut-off Condition \n\n        Cut-off Voltage - specifies the discharge cut-off voltage. \n\n• Instrument Settings \n\n        OverVoltage - specifies the discharge overvoltage limit. The default overvoltage value is set to the Max Battery Voltage setting +5%. However you have the option to change the overvoltage to a higher value. A status message will indicate that the overvoltage protection has been adjusted by the user. \n\n        Connection Type - specify the measurement connection type of the connected instrument (2- or 4-wire sensing). \n\n• Data Log Settings \n\nA data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. \n\n        File Name - specifies the filename of the data log. \n\n        Folder Location - selects the folder location of the data log (default location= Keysight\\BenchVue\\Advanced Battery Test and Emulation\\Data Logs). \n\n        File Save Rate - specify the rate at which data is saved to a file. If the rate is 1 s, measurement data is saved once every second. The file save rate must be divisible by the instrument's integration period.- \n\nStep 2. When you select Start, the discharge waveform will be displayed in the Discharge display. \n\nStep 3. When you exit the Discharge window the discharge waveform will automatically be available and loaded into the Emulation Operation. "
+              },
+              {
+                "step_title": "\nDischarge Run Example",
+                "step_description": "The following example describes the information that appears on the display when a discharge operation is run. Refer to Starting and Stopping for more information.",
+                "figure1": "images/dischargeDisplay.png",
+                "step_desc": "Battery Status - The Battery status area displays the running state of the battery as it is being discharged. Consumed Capacity is the energy in Amp hours that is consumed by the load as the battery is being discharged. Vt indicates the battery terminal voltage during the discharge operation. I indicates the current that is being discharged throughout the discharge operation. \n\nVoltage and Current - The Voltage and Current graph displays the battery discharge profile that is generated during the discharge operation. The voltage and current points at the specified integration period are displayed on the graph. Note that the current is being discharged at the specified rate of 1 A. The voltage of the battery decreases as the discharge operation continues.  \n\nThe red line indicates the specified cut-off voltage for the discharge. \n\nConsumed Capacity - The Consumed Capacity graph displays a visual representation of the consumed discharge capacity by the load during the duration of the discharge operation."
+              },
+              {
+                "step_title": "\nThe Charge Operation",
+                "step_description": "The following steps describes the charge operation. \n\nStep 1.   In the Settings area on the left side of the window, specify the charge settings.",
+                "figure1": "images/chargingModeSettings.png",
+                "step_desc": "• Reset Settings – resets the settings to the default values. \n\n• Settings - lets you specify the settings for the charge operation: \n\n        Charging Mode - displays the charge operating mode (default = CC, constant current). \n\n        Current - specifies the charge current (applies in CC mode). \n\n        Max Battery Voltage - specify the maximum voltage at the battery terminals (applies in CC mode). \n\n        Charging Voltage - specifies the charge voltage (applies in CV mode). \n\n        Current Limit - specify the high-current limit for charge operation (applies in CV mode). \n\nNote The allowable voltage and current settings depend on the operating ranges of the instrument. For example, for the N6781A power module - if you program a voltage limit of 18 V, you cannot program a charge current or current limit greater than 1 A. To program a current of 3 A, the voltage settings must be in the 6 V range. \n\n• Cut-off Condition  \n\n        Condition Type - specify either voltage or current cut-off conditions. \n\n        Stopping Current - specifies the stopping current value. When the battery’s voltage reaches the max battery voltage value, the current drops in CC mode charging. When the dropping current reaches the stopping current value, the charging operation is complete and the process will stop. \n\n        Stopping Voltage - specifies the stopping voltage value. When the battery’s voltage reaches the stopping voltage value, the charging operation will stop regardless of the measured current value. \n\n• Instrument Settings \n\n        OverVoltage - specifies the charge overvoltage limit. The default overvoltage value is set to the Max Battery Voltage setting +5%, or Charging Voltage setting +5%. However you have the option to change the overvoltage to a higher value. A status message will indicate that the overvoltage protection has been adjusted by the user. \n\n        OverCurrent - enables overcurrent protection (applies in CV mode). \n\n        Connection Type - specify the measurement connection type of the connected instrument (2- or 4-wire sensing).  \n\n• Data Log Settings \n\nA data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. \n\n        File Name - specifies the filename of the data log. \n\n        Folder Location - selects the folder location of the data log (default location= Keysight\\BenchVue\\Advanced Battery Test and Emulation\\Data Logs). \n\n        File Save Rate - specify the rate at which data is saved to a file. If the rate is 1 s, measurement data is saved once every second. The file save rate must be divisible by the instrument's integration period. \n\nStep 2. When you select Start, the charge waveform will be displayed in the Charge display.  \n\nStep 3. When you exit the Charge window the charge waveform will automatically be available and loaded into the Emulation Operation."
+              },
+              {
+                "step_title": "\nCharge Run Example",
+                "step_description": "The following example describes the information that appears on the display when a charge operation is run. Refer to Starting and Stopping for more information.",
+                "figure1": "images/chargeDisplay.png",
+                "step_desc": "Battery Status - The Battery status area displays the running state of the battery as it is being charged. Charged Capacity is the energy in Amp hours that is consumed by the battery as it is being charged. Vt indicates the battery terminal voltage during the charge operation. I indicates the current that is being charged throughout the charge operation. \n\nVoltage and Current - The Voltage and Current graph displays the battery charge profile that is generated during the charge operation. The voltage and current points at the specified integration period are displayed on the graph. Note that the current is being charged at different values throughout the charge cycle based on the physical characteristics of the battery. The voltage of the battery increases as the charge operation continues. The charging current is limited at the Current Limit value in CV mode. The battery voltage is limited at the Voltage Limit value in CC mode.  \n\nThe red line indicates the specified charge over-voltage limit. The yellow line is the stopping condition for the charging current. \n\nCharged Capacity - The Charged Capacity graph displays a visual representation of the charged state of the battery during the duration of the charge operation."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Using the Profiler Operation",
+          "content": {
+            "title": "The Profiler Operation",
+            "description": "Select the Discharge/Charge operation from the Settings menu or Icon.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/profilerIcon.png",
+                "step_desc": ""
+
+              },
+              {
+                "step_title": "",
+                "step_description": "or",
+                "figure1": "images/profilerSettingsMenu.png",
+                "step_desc": "Then select whether you are performing a Discharge or Charge operation."
+              },
+              {
+                "step_title": "\nThe Profile Window",
+                "step_description": "The figure below shows the main window of the Profiler operation.",
+                "figure1": "images/profilerMainWindow.png",
+                "step_desc": "1. Settings area - lets you select the Battery Emulator operation and the Profile settings. \n\n2. Battery status - displays a \"snapshot\" of the battery parameters when the profile is run. \n\n3. Voltage and Current - charts the battery voltage and current of the Profiler operation. You can configure the Current axis to display either Amps or Charge rate. \n\n4. Graph toolbars - lets you zoom in or out of the displayed data. \n\n5. Run Status - displays the run status of the selected instrument outputs. \n\n6. Start or Start All - click Start or Start All to start and display the profile of either the specified instrument output or all outputs. \n\n7. Settings - specify the settings for the new profile, or adjust the settings of the existing profile. \n\n8. State of Charge - charts the state of charge of the Profiler operation. You can configure the horizontal axis to display either state of charge in percent, or Capacity in Amp-hours. \n\n9. Data bar - indicates the portion of the data that is visible on the graph (all of the data in this example)."
+              },
+              {
+                "step_title": "\nThe Discharge Profile Operation",
+                "step_description": "The following steps describes the discharge profile operation. \n\nStep 1.    In the Settings area on the left side of the window, specify the discharge profile settings.",
+                "figure1": "images/profilerDischargeSettings.png",
+                "step_desc": "• New Profile - lets you configure a new profile. \n\n• Load Profile - loads an existing profile. Select the directory where the profile is located. This provides flexibility in that you can save battery test data into a profile at each SoC percentage level. For example, if you decide to stop the test after reaching certain SoC percentage, the data can first be saved into a profile. The same profile can be reloaded to resume testing at a different SoC level. This stop and resume profiling feature also applies when resting the battery during the discharging operation. \n\n• Profile settings - lets you specify the new profile name, location, and number of steps: \n\n        File Name - specify the existing filename or the filename of the new profile. \n\n        Folder Location - selects the folder location of the new profile (default location= Keysight\\BenchVue\\Advanced Battery Test and Emulation\\Battery). \n\n        No. of steps - the number of discharge profile steps. The minimum is 10, the default is 100, and the maximum is 1000. \n\n• Discharge Settings - lets you specify the settings for the new profile, or adjust the settings of the existing profile: \n\n        Battery Type - specifies the battery type: Primary (non-rechargable) or Rechargeable (default = Rechargeable). \n\n        Discharging Mode - displays the discharge operating mode (default = CC, constant current). \n\n        Discharge Current \n\n              Constant - specifies the steady-state discharge current. \n\n              Dynamic - lets you configure a dynamic discharge current waveform. There are two options for specifying dynamic currents: \n              1. Configuring a new CD (constant dwell) waveform (see Create a CD Arb Waveform, or \n              2. Importing an existing waveform file that has been created from the CD ARB waveform editor, or importing a current waveform that was created from a BV9200B output list editor (see Load a Current Waveform File). \n\n              Edit Waveform - When CD Arb Waveform is selected, opens the Edit Waveform dialog, which lets you configure a CD Arb waveform. \n\n              Sequence Count - lets you specify a repeat count for the waveform, or specify Continuous repeat. \n\n        Capacity Rating - specify the capacity of the discharge profile. \n\n        Battery Voltage - Click the Measure button to display the actual battery voltage. Whenever the battery voltage is updated, the voltage limit setting will be adjusted to reflect the battery voltage + 5%. A status message will indicate this automatic voltage limit adjustment. \n\n        Current Pulse Width - specify the pulse width of the discharge current pulse when the current is temporarily set to discharge current to measure Vl (load voltage). \n\n        Rest Time - specify the rest time between pulses, when the discharge current is zero to measure Voc (open-circuit voltage). \n\nNote The allowable voltage and current settings depend on the operating ranges of the instrument. For example, for the N6781A power module - if you program a voltage limit of 18 V, you cannot program a discharge current greater than 1 A. To program a current of 3 A, the voltage settings must be in the 6 V range. \n\n• Cut-off Condition - select from the following condition types: \n\n        Cut-off Voltage - specifies the discharge cut-off voltage. \n\n        Consumed Capacity - specifies the consumed discharge capacity cut-off limit of the battery in amp-hours. \n\n• Instrument Settings \n\n         OverVoltage - specifies the discharge overvoltage limit. The default overvoltage value is set to the Voltage Limit setting +5%. However you have the option to change the overvoltage to a higher value. A status message will indicate that the overvoltage protection has been adjusted by the user. \n\n        Connection Type - specify the measurement connection type of the connected instrument (2- or 4-wire sensing). \n\n• Data Log Settings  \n\nA data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. \n\n        File Name - specifies the filename of the data log. \n\n        Folder Location - selects the folder location of the data log (default location= Keysight\\BenchVue\\Advanced Battery Test and Emulation\\Data Logs). \n\n        File Save Rate - specify the rate at which data is saved to a file. If the rate is 1 s, measurement data is saved once every second. The file save rate must be divisible by the instrument's integration period. \n\nStep 2. When you select Start, the configured discharge profile will be displayed in the Profile display. \n\nStep 3. When you exit the Profile window the profile is saved in the directory under the filename that you specified in the Profile Settings."
+              },
+              {
+                "step_title": "Discharge Profile Run Example",
+                "step_description": "The following example describes the information that appears on the display when a discharge profile is run. Refer to Starting and Stopping for more information.",
+                "figure1": "images/dischargeProfileDisplay.png",
+                "step_desc": "Battery Status - The Battery status area displays the running state of the battery as it is being discharged. Voc is the open-circuit voltage of the battery during the discharge operation. Ri is the calculated internal resistance of the battery during the discharge operation. Vt indicates the battery terminal voltage during the discharge operation. I indicates the current that is being discharged throughout the discharge operation. Consumed Capacity is the energy in milli-Amp hours that has been consumed by the load as the battery is being discharged. Remaining Capacity is the capacity in milli-Amp hours still remaining in the battery as it is being discharged. \n\nVoltage and Current - The Voltage and Current graph displays the battery discharge profile that is being used during the discharge operation. The voltage and current data are displayed on the graph at the specified integration period. The voltage data is superimposed over the current data. The current is being discharged at the specified rate of -1 A, as shown along the very bottom of the display. A user-configured discharge current pulse is repeatedly applied during the discharge operation so that measurements can be made to calculate the internal resistance of the battery. \n\nIn addition to amperes, you can also check \"C-Rate\", which plots the current data in Coulombs. \n\nThe red line on the graph indicates the specified cut-off voltage. \n\nState of Charge - The State of Charge graph displays the open-circuit voltage and the calculated internal resistance of the battery during the discharge operation. The state of charge is represented in percent on the y-axis. You can also check \"Capacity\", which plots the Voc and Ri traces based on the remaining capacity (when discharging) or consumed capacity (when charging).  \n\nThe red line indicates the specified cut-off voltage."
+              },
+              {
+                "step_title": "\nThe Charge Profile Operation",
+                "step_description": "The following steps describes the charge profile operation.  \n\nStep 1.    In the Settings area on the left side of the window, specify the charge profile settings.",
+                "figure1": "images/ProfilerChargeSettings.png",
+                "step_desc": "• New Profile - lets you configure a new profile. \n\n• Load Profile - loads an existing profile. Select the directory where the profile is located. This provides flexibility in that you can save battery test data into a profile at each SoC percentage level. For example, if you decide to stop the test after reaching certain SoC percentage, the data can first be saved into a profile. The same profile can be reloaded to resume testing at a different SoC level. This stop and resume profiling feature also applies when resting the battery during the charging operation. \n\n• Profile settings - lets you specify the new profile name, location, and number of steps: \n\n        File Name - enter the filename of the new profile. \n\n        Folder Location - selects the folder location of the new profile (default location= Keysight\\BenchVue\\Battery Emulator\\Battery). \n\n        No. of steps - the number of charge profile steps. The minimum is 10, the default is 100, and the maximum is 1000. \n\n• Settings - lets you specify the settings for the new profile, or adjust the settings of the existing profile: \n\n        Charging Mode - displays the charge operating mode (default = CC, constant current). \n\n        Current - specify the charge current. \n\n        Max Charge Voltage - specify the maximum charge voltage for the charge profile. \n\n        Capacity Rating - specify the capacity of the charge profile amp-hours. \n\n        Current Pulse Width - specify the pulse width of the charge current pulse when the current is temporarily set to charge current to measure Vl (load voltage). \n\n        Rest Time - specify the rest time between pulses, when the charge current is zero. \n\nNote The allowable voltage and current settings depend on the operating ranges of the instrument. For example, for the N6781A power module - if you program a voltage limit of 18 V, you cannot program a charge current greater than 1 A. To program a current of 3 A, the voltage settings must be in the 6 V range. \n\n• Cut-off Condition - select one or Both of the following conditions: \n\n        Stopping Current - specifies the stop-charging current value. When the battery’s voltage reaches the voltage limit value, the current drops in both CC and CV mode charging. When the dropping current reaches the stopping current value, the charging operation is complete and the process will stop. \n\n        Charged Capacity - specifies the charged capacity of the battery in amp-hours. \n\n• Instrument Settings \n\n        OverVoltage - specifies the discharge overvoltage limit. The default overvoltage value is set to the Voltage Limit setting +5%. However you have the option to change the overvoltage to a higher value. A status message will indicate that the overvoltage protection has been adjusted by the user. \n\n        Connection Type - specify the measurement connection type of the connected instrument (2- or 4-wire sensing). \n\n• Data Log Settings \n\nA data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. \n\n        File Name - specifies the filename of the data log. \n\n        Folder Location - selects the folder location of the data log (default location= Keysight\\BenchVue\\Advanced Battery Test and Emulation\\Data Logs). \n\n        File Save Rate - specify the rate at which data is saved to a file. If the rate is 1 s, measurement data is saved once every second. The file save rate must be divisible by the instrument's integration period. \n\nStep 2. When you select Start, the configured discharge profile will run in the Profile display. \n\nStep 3. When you exit the Profile window the profile is saved in the directory under the filename that you specified in the Profile Settings."
+              },
+              {
+                "step_title": "Charge Profile Run Example",
+                "step_description": "The following example describes the information that appears on the display when a charge profile is run. Refer to Starting and Stopping for more information.",
+                "figure1": "images/chargeProfileDisplay.png",
+                "step_desc": "Battery Status - The Battery status area displays the running state of the battery as it is being charged. Voc is the open-circuit voltage of the battery during the charge operation. Ri is the calculated internal resistance of the battery during the charge operation. Vt indicates the battery terminal voltage during the charge operation. I indicates the current that is being charged throughout the charge operation. Charged Capacity is the energy in milli-Amp hours that has been consumed by the battery as it is being charged. Remaining Capacity is the capacity in milli-Amp hours remaining that still needs to be charged. \n\nVoltage and Current - The Voltage and Current graph displays the battery charge profile that is being used during the charge operation. The voltage and current data are displayed on the graph at the specified integration period. The voltage data is superimposed over the current data. The current is being charged at the specified rate of 1.5 A, as shown at the top of the display. A user-configured charge current pulse is repeatedly applied during the charge operation so that measurements can be made to calculate the internal resistance of the battery. \n\nIn addition to amperes, you can also check \"C-Rate\", which plots the current data in Coulombs. \n\nThe red line on the graphs indicates the specified voltage limit. The yellow line is the Istop value, which is set to -0.5mA. This is because the battery will charge at very low current when the battery is almost fully charged. The stop-charging current value is set to a value slightly less than the low current charging value. \n\nState of Charge - The State of Charge graph displays the open-circuit voltage and the calculated internal resistance of the battery during the discharge operation. The state of charge is represented in percent on the y-axis. You can also check \"Capacity\", which plots the Voc and Ri traces based on the remaining capacity (when discharging) or consumed capacity (when charging).  \n\nThe red line indicates the specified cut-off voltage."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Using the Emulation Operation",
+          "content": {
+            "title": "The Emulation Operation",
+            "description": "Select the Emulation operation from the Settings menu or Icon.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/emulateIcon.png",
+                "step_desc": ""
+
+              },
+              {
+                "step_title": "",
+                "step_description": "or",
+                "figure1": "images/emulateSettingsMenu.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "\nThe Emulation Window",
+                "step_description": "The figure below shows the main window of the Emulation operation.",
+                "figure1": "images/emulationMainWindow.png",
+                "step_desc": "1. Settings area - lets you select the Battery Emulation operation. \n\n2. Battery status - displays a \"snapshot\" of the battery parameters when the Emulation operation is run. \n\n3. State of Charge - charts the state of charge of the Emulation operation. You can configure the horizontal axis to display either state of charge in percent, or Capacity in Amp-hours. \n\n4. Graph toolbars - lets you zoom in or out of the displayed data. \n\n5. Run Status - displays the run status of the selected instrument outputs. \n\n6. Start or Start All - click Start or Start All to start and display the profile of either the specified instrument output or all outputs. \n\n7. Settings - specify the settings for the Emulation operation. \n\n8. Voltage and Current - charts the battery voltage and current of the Emulation operation. You can configure the Current axis to display either Amps or Charge rate. \n\n9. Data bar - indicates the portion of the data that is visible on the graph (all of the data in this example)."
+              },
+              {
+                "step_title": "Battery Emulation Operation",
+                "step_description": "The following steps describe the battery emulation operation.  \n\nStep 1.    In the Settings area on the left side of the window, specify the Emulation settings:",
+                "figure1": "images/emulateSettings.png",
+                "step_desc": "• Reset Settings - Resets the Battery Emulation settings to the default settings. \n\n• Open Profile - Opens an existing discharge or charge profile. Select the directory where the profile is located. \n\n        Profile Name – displays the name of the open profile. \n\n        Capacity Rating - displays the capacity rating of the profile in amp-hours. \n\n        Constant Current - displays the constant current charge of the profile in amps. \n\n• Emulation Settings - lets you adjust specific settings in the Emulation profile: \n\n        Capacity Rating - specifies the capacity of the profile in amp-hours. \n\n        Current Limit – specifies the current limit in amps. \n\n        Initial State of Charge - specifies the initial state of charge in percent. \n\n        Delay Before Start - specifies the delay before starting the profile in seconds. \n\nNote The allowable voltage and current settings depend on the operating ranges of the instrument. For example, for the N6781A power module - if you program a voltage threshold of 18 V, you cannot program a current value greater than 1 A. To program a current of 3 A, the voltage threshold settings must be in the 6 V range. "
+              },
+              {
+                "step_title": "",
+                "step_description": "• Cut-off Condition  \n\n        Condition type - select from Cut-off SOC (state of charge), or Cut-off Voltage. \n\n        Lower Threshold - specifies a lower threshold that serves as cut-off for the discharge operation. You can specify a state-of-charge in percent, along with the voltage measured at the battery terminals. Alternatively, you can select the Cut-off Voltage only.  \n\n        Upper Threshold - specifies an upper threshold that serves as cut-off for the charging operation. You can specify a state-of-charge in percent, along with the voltage measured at the battery terminals. Alternatively, you can select the Cut-off Voltage only. ",
+                "figure1": "images/blank.jpg",
+                "step_desc": "• Instrument Settings \n\n        Overvoltage - specifies the emulation overvoltage limit. The default overvoltage value is set to the Upper Threshold Vt setting +5%. However you have the option to change the overvoltage to a higher value. A status message will indicate that the overvoltage protection has been adjusted by the user. \n\n        Connection Type - specify the measurement connection type of the connected instrument (2- or 4-wire sensing. \n\n• Data Log Settings \n\nA data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. \n\n        File Name - specifies the filename of the data log. \n\n        Folder Location - selects the folder location of the data log (default location= Keysight\\BenchVue\\Advanced Battery Test and Emulation\\Data Logs). \n\n        File Save Rate - specify the rate at which data is saved to a file. If the rate is 1 s, measurement data is saved once every second. The file save rate must be divisible by the instrument's integration period. \n\nStep 2. When you select Start, the emulation waveform will be displayed in the Discharge Window. "},
+              {
+                "step_title": "\n\nBattery Emulation Example",
+                "step_description": "The following examples describes the information that appears on the display when a discharge or charge emulation is run. Refer to Starting and Stopping for more information. \n\nNote that the BenchVue Advanced Battery Test and Emulation application supports bi-directional emulation. This is because in normal use cases batteries are discharged and charged repeatedly. The discharge or charge operation is determined by the current direction. Current is either flowing into or out of the battery. The discharge\\charge emulation will switch within the specified Upper and Lower Threshold boundaries. \n\nFigure below shows the emulation discharge display: ",
+                "figure1": "images/emulationDischargeDisplay.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Figure below shows the emulation charge display: ",
+                "figure1": "images/emulationChargeDisplay.png",
+                "step_desc": "Battery Status - The Battery status area displays the running state of the discharge or charge emulation. Voc is the open-circuit voltage of the emulation during the discharge operation. Computed Vt is calculated based on (current array fetched from instrument * internal resistance). Ri is the internal resistance of the emulation during the specified operation. I indicates the current that is being discharged or charged throughout the specified operation. Consumed Capacity is the energy in Amp hours that has been consumed by the load as the emulation is discharging. Charged Capacity is the energy in Amp hours that has been generated by the charge emulation. Remaining Capacity is the capacity in Amp hours still remaining in the emulation as it is discharging or charging. \n\nThe red line on the graph indicates the specified cut-off voltage. \n\nState of Charge - This graph does not updated during runtime. It only displays the Ri and Voc values from the loaded profile. \n\nVoltage and Current - The Voltage and Current graph displays the voltage and current that is either being consumed by the load connected to the battery, or charged back into the battery during the emulation operation. The voltage and current data are displayed on the graph at the specified integration period. "
+              },
+              {
+                "step_title": "",
+                "step_description": "In addition to amperes, you can also check \"C-Rate\", which plots the current data in Coulombs. \n\nThe red line indicates the specified cut-off voltage.",
+                "figure1": "images/chargeDischargeCycle.png",
+                "step_desc": "In this example, the emulation starts discharging the battery at 1 A, then switches to charging the battery at 200 mA. The charging process continues until the charging voltage reaches the specified upper threshold Vt value."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Using the Battery Cycle Operation",
+          "content": {
+            "title": "The Battery Cycle Operation",
+            "description": "Select the Battery Cycle operation from the Settings menu or Icon.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/cyclerIcon.png",
+                "step_desc": ""
+
+              },
+              {
+                "step_title": "",
+                "step_description": "or",
+                "figure1": "images/cyclerSettingsMenu.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "The Battery Cycle Window",
+                "step_description": "The link below shows the main window of the Battery Cycle operation.",
+                "figure1": "images/cyclerMainWindow.png",
+                "step_desc": "1. Settings area - lets you select the Battery Cycle operation. \n\n2. VI and Capacity Graph - displays battery VI and capacity measurements as the cycle operation is run. \n\n3. Display configuration - lets you configure the Current axis to display either Amps, Charge rate, or the Cycle separation lines. \n\n4. Graph toolbars - lets you zoom in or out of the displayed data. \n\n5. Run Status - displays the run status of the selected instrument outputs. \n\n6. Start or Start All - click Start or Start All to start the cycle operation on either the specified instrument output or all outputs. \n\n7. Settings - specify the settings for the Battery Cycle operation. \n\n8. Battery Cycle steps - displays a list of all of the battery cycle steps as the cycle operation is running charts. The presently active step is highlighted on the list."
+              },
+              {
+                "step_title": "\nBattery Cycle Configuration",
+                "step_description": "The following steps describe the battery cycle operation. \n\nStep 1.    In the Settings area on the left side of the window, specify the battery cycle settings:",
+                "figure1": "images/cycleSettings.png",
+                "step_desc": "• + New Sequence - lets you create a new battery cycle sequence using the Edit Battery Cycle Sequence dialog. \n\n• Load Sequence - lets you load a previously created sequence. Battery cycle sequences are identified by a .json file extension. \n\n• Cycler Settings - lets you adjust specific settings in the cycle sequence. The cycle preview area. Lists all of the steps in the presently loaded (active) sequence. \n\n        Step column – identifies the steps by number displays the name of the open profile. \n\n\n        Operation column - identifies the step function: charge, discharge, or rest."
+              },
+              {
+                "step_title": "",
+                "step_description": "        Pencil icon - select",
+                "figure1": "images/pencilIcon.png",
+                "step_desc": "        to open the Edit Battery Cycle Sequence dialog that lets you edit the highlighted step."
+              },
+              {
+                "step_title": "",
+                "step_description": "        Navigation controls - use the",
+                "figure1": "images/navigationControl.png",
+                "step_desc": "    controls to scroll through the sequence steps. \n\n• Repeat Count - specifies the number of times the battery cycle sequence repeats. The minimum repeat count is 1; the maximum repeat count is 1000. \n\n         Connection Type - specify the measurement connection type of the connected instrument (2- or 4-wire sensing). \n\n        OverVoltage Protection - specifies the overvoltage limit. The default overvoltage value is set to the Upper Threshold Vt setting +5%. However you have the option to change the overvoltage to a higher value. A status message will indicate that the overvoltage protection has been adjusted by the user. \n\n• Data Log Settings \n\nA data log of the voltage and current measurements of the existing operation is automatically generated when the operation is started. \n\n         File Name - specifies the filename of the data log. \n\n        Folder Location - selects the folder location of the data log (default location= Keysight\\BenchVue\\Advanced Battery Test and Emulation\\Data Logs). \n\n        File Save Rate - specify the rate at which data is saved to a file. If the rate is 1 s, measurement data is saved once every second. The file save rate must be divisible by the instrument's integration period. \n\nStep 2. When you select Start, the battery cycle sequence will be displayed in the VI and Capacity Graph. "
+              },
+              {
+                "step_title": "\nBattery Cycle Example",
+                "step_description": "The following example illustrates the information that appears on the display when a battery cycle operation is run. Refer to Starting and Stopping for more information. \n\nVI and Capacity Graph - The VI and Capacity Graph displays the current (I) and voltage V) values on the left side of the graph, and the Capacity values in Ah on the right side of the graph. \n\nIn addition to amperes, you can also check \"C-Rate\", which plots the current data in Coulombs. ",
+                "figure1": "images/cyclerSettingsMenu.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "In this example, two adjacent rest steps are shown along with a battery discharge step. the sequence is repeated three times. Each time it repeats the battery is progressively discharged. The rest steps do not change in length but the battery discharge time is shorter because the stopping voltage level is reached sooner with each cycle. \n\nThe Battery Cycle dropdown area at the bottom of the window displays the measurement details of the sequence steps.",
+                "figure1": "images/cyclerSettingsMenu.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Using the Battery Viewer",
+          "content": {
+            "title": "The Battery Viewer",
+            "description": "Select the Battery Viewer folder at the top of the Advanced Battery Test and Emulation application.",
+            "steps": [
+              {
+                "step_title": "The Battery Viewer",
+                "step_description": "The image below shows the Battery Viewer. This information represents the data log that was acquired when the specified operation was run.",
+                "figure1": "images/batteryViewer.png",
+                "step_desc": "1. Settings area - displays the Operation and Settings that were in effect when the datalog was generated. \n\n2. Voltage and Current Graph - displays all battery voltage and current measurements of the completed operation. \n\n3. Display configuration - lets you display selected data log information: either Amps, Charge rate, Current Graph, or Voltage Graph. \n\n4. Graph toolbars - lets you zoom in or out of the displayed data. "
+              },
+              {
+                "step_title": "\nData Log Integration Period",
+                "step_description": "All instruments have an available data logging speed of 200k samples per second. However, based on the number of modules, the pulse and rest settings, and the instrument configuration, the actual measurement integration period is as follows:",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+              }
+            ],
+            "tables": [
+              {
+                "title": "Profiler Function",
+                "data": [
+                  {
+                    "Instrument": "N6705 & N6700 series\n\n\n",
+                    "Modules": "1 \n2 \n3 \n4",
+                    "Pulse & Rest setting": "> 2 ms \n> 4 ms \n> 6 ms \n> 8 ms",
+                    "Integration Period": "204.8 μs \n409.6 μs \n614.4 μs \n819.2 μs",
+                    "Pulse & Rest setting ": "≤ 2 ms \n≤ 4 ms \n≤ 6 ms \n≤ 8 ms",
+                    "Integration Period ": "614.4 μs \n1.2288 ms \n1.8432 ms \n2.4576 ms "
+                  },
+                  {
+                    "Instrument": "N7900 & RP7900 series",
+                    "Modules": "N/A",
+                    "Pulse & Rest setting": "N/A",
+                    "Integration Period": "204.8 μs",
+                    "Pulse & Rest setting ": "N/A",
+                    "Integration Period ": "204.8 μs"
+                  },
+                  {
+                    "Instrument": "RP7900 (paralleled)",
+                    "Modules": "N/A",
+                    "Pulse & Rest setting": "N/A",
+                    "Integration Period": "20.48 ms",
+                    "Pulse & Rest setting ": "N/A",
+                    "Integration Period ": "20.48 ms"
+                  }
+                ]
+              },
+              {
+                "title": "Emulate Function",
+                "data": [
+                  {
+                    "Instrument": "N6705 & N6700 series\n\n\n",
+                    "Modules": "1 \n2 \n3 \n4",
+                    "Integration Period": "102.4 μs \n204.8 μs \n307.2 μs + 20.48 μs = 327.68 μs \n409.6 μs"
+                  },
+                  {
+                    "Instrument": "N7900 & RP7900 series",
+                    "Modules": "N/A",
+                    "Integration Period": "102.4 ms"
+                  },
+                  {
+                    "Instrument": "RP7900 (paralleled)",
+                    "Modules": "N/A",
+                    "Integration Period": "10.24 ms"
+                  }
+                ]
+              },
+              {
+                "title": "Discharge/Charge and Cycler Functions",
+                "data": [
+                  {
+                    "Instrument": "N6705 & N6700 series\n\n\n",
+                    "Modules": "1 \n2 \n3 \n4",
+                    "Integration Period": "204.8 μs \n409.6 μs \n614.4 μs \n819.2 μs"
+                  },
+                  {
+                    "Instrument": "N7900 & RP7900 series",
+                    "Modules": "N/A",
+                    "Integration Period": "204.8 μs"
+                  },
+                  {
+                    "Instrument": "RP7900 (paralleled)",
+                    "Modules": "N/A",
+                    "Integration Period": "20.48 ms"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Starting and Stopping Operations",
+          "content": {
+            "title": "Starting and Stopping Operations",
+            "description": "This topic explains about the Starting and Stopping Operations.",
+            "steps": [
+              {
+                "step_title": "Manually Stopping an Operation",
+                "step_description": "The Start and Stop buttons  are fully independent for each channel, and start and stop the specified operation on the selected slot and channel. This is useful in situations where many tests are presently running, but one test may need to be stopped, or a new test may need to be added without disturbing the other tests that are running. \n\nSimilarly, the Start All and Stop All buttons  can simplify using the application when coordinated tests are running on multiple slots and channels at the same time.- such as when each channel is connected to one battery cell in a battery pack. \n\nAny time the Stop button is pressed, the test data is saved into the opened profile file. The settings panel will be disabled when the operation is running to prevent any configuration changes to the profile, which otherwise would make the profile invalid. \n\nIf a profile does not exist, the profile data will be saved to the following predefined filename and location: C:\\Users\\<user>\\Documents\\Keysight\\BenchVue\\Battery Emulator\\Battery. \n\nManually starting an incomplete operation \n\nWhen the Start button is subsequently pressed after the test has been stopped, the selected operation will resume and start updating the profile from where it left off. The previously saved test data is automatically loaded when the Start button is pressed. The following figure shows profile data, including the flags that indicate where the test had been stopped.",
+                "figure1": "images/stoppedFlags.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "Discharge and Charge Stopping and Starting",
+                "step_description": "When using the discharge and charge operations, you can manually start and stop a test as any time as previously described. You can also specify a test condition to stop the operation once the condition is reached. This is referred to as the Cut-Off Condition. Once the cut-off condition is reached, the test data is saved into the specified data file. \n\nFor the discharge operation, a cut-off condition can be defined for: \nCut-Off Voltage \n\nThe battery will discharge until the cut-off voltage is reached. This will end the discharge operation. \n\nFor the charge operation, a cut-off condition can be defined for: \nStopping Voltage \nStopping Current \n\nIf Stopping Voltage is chosen as the cut-off condition, the battery will charge until the stopping voltage is reached, regardless of the charge current. This will end the charge operation. \n\nIf Stopping Current is chosen as the cut-off condition, the battery will charge until the maximum battery voltage is reached, but the stopping current will decide when the operation ends. In some cases, the voltage can reach maximum battery voltage but not end as the stopping current has not been reached. Note that the Stopping Current is normally to a small value.",
+                "figure1": "images/currentLimitExceedMessage.png",
+                "step_desc": "Note: When in CV mode, the specified current limit can be reached when the charging operation is trying to reach and maintain the specified charging voltage. The charging will continue until the Stopping Voltage is reached. However a message will indicate that the specified current limit has been reached, allowing the user to decide whether to continue the charging operation or stop the test. Above is the example of Message"
+              },
+              {
+                "step_title": "\nProfiler Stopping and Starting",
+                "step_description": "When using the Profiler operations, you can manually start and stop a test at any time as previously described. You can also specify a test condition to stop the operation once the condition is reached. This is referred to as the Cut-Off Condition. Once the cut-off condition is reached, the test data is saved into the specified profile file and the profile is considered complete. ",
+                "figure1": "images/blank.jpg",
+                "step_desc": "For the discharge profile, a cut-off condition can be defined for: \nCut-off Voltage \nConsumed Capacity \n\nFor the charge profile, a cut-off condition can be defined for: \nStopping Current \nCharged Capacity \nor Both"
+              },
+              {
+                "step_title": "\nEmulation Stopping and Starting",
+                "step_description": "When using the Emulation operation, you can manually start and stop a test at any time as previously described. But you can also specify a test condition to stop the operation once the condition is reached. This is referred to as the Cut-Off Condition. Once the cut-off condition is reached, the test data is saved into the specified profile file. You can then resume the test by specifying different cut-off conditions. \n\nFor the Emulation operation, it is: \nUpper Threshold SoC (state of charge) \nUpper Threshold Vt (terminal voltage) \nLower Threshold SOC (state of charge) \nLower Threshold Vt (terminal voltage) \n\nOther conditions that will stop the emulation operation is when the Current Limit or an overvoltage condition is reached. When these stopping conditions occur, the operation is ended and the battery information is automatically saved. In these cases, the operation is considered complete.",
+                "figure1": "images/blank.jpg",
+                "step_desc": "Using the-cut-off condition to specify a specific state-of-charge for example, is a useful application for battery emulation. It is common during battery testing that the battery may be resting or left unattended for certain periods of time after reaching a certain SoC. During the rest time, the battery could be left in open circuit state from an hour up to a day. After the rest time, the test could then be resumed at a different percentage of SoC. \n\nAfter stopping, the data saved into the existing profile. The same profile can then be reloaded to resume battery test at different level of SoC. \n\nDuring the time that the battery is resting or being left unattended, you can even close that application if you need to need ty use the computer for other activities. \n\nAfter opening the application and resuming battery test, the application will automatically locate the last stopped test conditions and automatically calculate battery capacity to continue the emulation operation."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Applying Waveforms",
+          "content": {
+            "title": "Applying Waveforms",
+            "description": "The Advanced Battery Test and Emulation application lets you create and import current-drain waveforms into the emulation to replicate real-life current drain scenarios that cell phone, laptop, or other battery types are subject to. Current drain waveforms can be created with a duration of up to 5.4 hours. \n\nIMPORTANT: When using the N6705 DC Power Analyzer or the N6700 Modular Power System, you can only run dynamic current-drain waveforms on one of the installed power modules at a time. Single-output power supplies can run dynamic current-drain waveforms concurrently. However, all discharge operations must be configured ahead of time - before they are started.",
+            "steps": [
+              {
+                "step_title": "\nEdit Waveform Description",
+                "step_description": "Click the Edit waveform button to create a CD (constant-dwell) arbitrary current waveform. This action displays the Edit Waveforms dialog. The link below shows the Edit Waveforms dialog.",
+                "figure1": "images/editWaveformSelection.png",
+                "step_desc": ""
+
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/editWaveformDialog.png",
+                "step_desc": "1. Waveform - in this example, the Ramp waveform has been inserted in the Build Waveform area. \n\n2. New Waveform - indicates the area where the next waveform will be added in the Build Waveform area. \n\n3. Insert Left, Insert Right buttons - insert a new waveform to the left or right of the highlighted waveform. Delete, Clear All buttons - delete the highlighted waveform, or clear all of the waveforms. \n\n4. Waveform Configuration - select the waveform to be configured in this area. \n\n5. Settings - specifies the settings of the highlighted waveform. \n\n6. Insert - inserts the highlighted waveform into the Build Waveform area.  \n\n7. Export - exports the waveform file. \n\n8. Apply Waveform - applies the waveform to the opened Profile. \n\n 9. Cancel - cancels and exits the Edit Waveforms dialog. "
+              },
+              {
+                "step_title": "\nEdit Waveform Description",
+                "step_description": "The following steps create a ramp discharge waveform.",
+                "figure1": "images/createCDArbWaveform.png",
+                "step_desc": "Step 1.  In the Waveform Configuration area in the center of the window, select the Ramp waveform.  \n\nStep 2.  Fill in the settings information for the waveform. Each waveform has its own settings . Refer to Built-in Waveforms for information about additional waveforms. \n\n        Start Amplitude - the amplitude before the ramp starts. \n\n        End Amplitude - the amplitude after the ramp ends. \n\n        Delay - the delay after the trigger is received but before the step starts. The Start Amplitude applies during the delay. \n\n        Ramp Time - the time that the output ramps up. \n\n        End Time - the time that the output remains at the End Amplitude. \n\n        Repeat Count - the number of times the waveform repeats."
+              },
+              {
+                "step_title": "",
+                "step_description": "Step 3.  Select the Insert button to insert the waveform into the Build Waveform area. \n\nNote that you can use the Insert Left and Insert Right buttons to position the new waveform to the left or the right of an existing waveform. ",
+                "figure1": "images/insertLeftAction.png",
+                "step_desc": "        Step 1. Select the Insert Left button. \n\n        Step 2. The New Waveform placeholder moves to the left of the existing waveform. \n\nStep 4.  Select Apply Waveform to apply the waveform to the opened Profile. "
+              },
+              {
+                "step_title": "\nModify a CD Arb Waveform",
+                "step_description": "The following steps modify the ramp discharge waveform.",
+                "figure1": "images/modifyCDArbWaveform.png",
+                "step_desc": "Step 1.  In the Build Waveform area in the center of the window, select the Ramp waveform.  \n\nStep 2.  Update the settings information for the waveform. \n\nRepeat Count - the number of times the waveform repeats is set to 3."
+              },
+              {
+                "step_title": "",
+                "step_description": "Step 3.  Select the Modify button to insert the waveform into the Build Waveform area.  \n\nNote that you can select the Delete buttons to delete any selected waveform. ",
+                "figure1": "images/modifyCDArbDeleteAction.png",
+                "step_desc": "        Step 1. Select the waveform to delete. \n\n        Step 2. Select the Delete button. The remaining waveforms will occupy the space left by the deleted waveform. "
+              },
+              {
+                "step_title": "\nExport the CD Waveform",
+                "step_description": "Step 1.   Click on the Export button to export the waveform file.",
+                "figure1": "images/exportCDWaveform.png",
+                "step_desc": "Step 2.   Under Export File Details accept the default export path, or select Browse to specify a different location where you will save the file. Additionally, you can specify the item to append to the filename (date, time, or file number). \n\nStep 3.  Under Trace Data Optionsspecify the data separator (comma, semicolon, or tab). \n\nStep 4.  Select OK. After the waveform has been saved, a message will indicate that the CD Arb waveform data was successfully saved to the specified location."
+              },
+              {
+                "step_title": "\nLoad a Current Waveform File",
+                "step_description": "You can load a CD ARB current waveform from a file that you had previously saved, or you can also import a current waveform that was created from a BV9200B 512-point list file. You cannot mix file types on an instrument with multiple channels. \n\nCD Arb current waveforms are dwell-paced, with the same dwell time applied to every point in the waveform. The maximum number of points is 65,535. The minimum dwell time is 10.24 µs. The dwell time is calculated based on the number of points and the length of the waveform.  \n\nConversely, the 512-point list waveform has a programmable dwell time that can be applied to each point on the list. The 512-point sequence type is only available for use on Keysight N6705-series DC Power Analyzers. \n\nStep 1. Select",
+                "figure1": "images/moreIcon.jpg",
+                "step_desc": "icon in the settings area to load the CD Arb Waveform. "
+              },
+              {
+                "step_title": "",
+                "step_description": "Load waveform selection: ",
+                "figure1": "images/loadWaveformSelection.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Step 2. Select",
+                "figure1": "images/waveIcon.png",
+                "step_desc": "in the settings area to preview the waveform. This lets you preview it before you run the profile. "
+              },
+              {
+                "step_title": "",
+                "step_description": "Waveform preview: ",
+                "figure1": "images/waveformFilePreview.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Step 3. Select the Run button to run the Profile. The applied waveform will appear in the Voltage and Current display area when the profile is run. \n\nApplied waveform: ",
+                "figure1": "images/appliedWaveform.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "Create a BV9200B 512-point List File",
+                "step_description": "Complete details for creating a 512-point list file are found in the BV9200B Help under \"Creating List Waveforms\". \n\nBriefly, the following steps describe what is involved to create a 512-point current waveform. \n\nRun the BV9200B Control and Analysis Application.",
+                "figure1": "images/createBV9200Bstep1.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Step 1.  Select the ARB tab in the Main application window. \n\nStep 2.  Select the output for which you are going to crate the current trace. This output must match the one you will be using in the Advanced Battery Test and Emulation application. \n\nStep 3.  Select the Output List waveform type. Once the Output List dialog opens, you can create the 512-point current waveform.",
+                "figure1": "images/createBV9200Bstep2.png",
+                "step_desc": "Step 4.  Create the List steps in the Construct waveform by type area. Note that the BOST and EOST settings will not apply in the Advanced Battery Test and Emulation application. \n\nStep 5.  Preview the waveform you have create int he Preview window. If required, go back and make any adjustments. \n\nStep 6.  Select Export to export he current waveform."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Applying Cycling Sequences",
+          "content": {
+            "title": "Applying Cycle Sequences",
+            "description": "The Advanced Battery Test and Emulation application lets you create and import current-drain waveforms into the emulation to replicate real-life current drain scenarios that cell phone, laptop, or other battery types are subject to. Current drain waveforms can be created with a duration of up to 5.4 hours. \n\nIMPORTANT: When using the N6705 DC Power Analyzer or the N6700 Modular Power System, you can only run cycle sequences on one of the installed power modules at a time. Single-output power supplies can run cycle sequences concurrently. ",
+            "steps": [
+              {
+                "step_title": "Cycle Sequence Description",
+                "step_description": "Load Cycler to load previous stopped cycler operation and continue where it stopped. \n\nClick + New Sequenceto create a battery cycle sequence. This action displays the Edit Battery Sequence dialog. The link below shows the Edit Battery Sequence dialog. \n\nClick Load Sequence - to load an existing battery cycle sequence. Select the directory where the sequence is located. ",
+                "figure1": "images/editBatterySequence.png",
+                "step_desc": "1. Sequence List - this area lists all of the steps in the cycle sequence. Steps  \n\n2. Build Waveform - indicates the area where the steps (waveform) will be added in the sequence. \n\n3. Move Left, Move Right buttons - move the highlighted waveform to the left or right. Delete, Clear All buttons - delete the highlighted waveform, or clear all of the waveforms. \n\n4. Step Configuration - select the step function (charge, discharge, or rest) in this area. \n\n5. Export - exports the sequence file (with .json extension). \n\n6. Navigation menu - use these controls to scroll through the sequence steps. \n\n7. Configuration details - lets you provide configuration details for the selected step.  \n\n8. Insert menu - select Modify to apply the edits to the step. Select Insert Left or Insert Right to insert the step next to the highlighted step (waveform) in the Build Waveform area. \n\n9. Apply Sequence - applies the sequence to the battery cycle operation \n\n10. Cancel - cancels and exits the Edit Battery Sequence dialog. "
+              },
+              {
+                "step_title": "\nCreate a Cycle Sequence",
+                "step_description": "The following steps create a sequence consisting of a discharge, rest, and charge step. \n\nStep 1.  In the Step Configuration area in the center of the window, select the Discharge step. Enter values for the Discharge Current, Max Battery Voltage, and Cut-off Voltage. Then select Insert Left. This places the Discharge step as the first step in the sequence.",
+                "figure1": "images/createCyclerSeq1.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "In the Step Configuration area in the center of the window, select the Rest step. Enter values for the rest Period. Then select Insert Left. This places the Rest step as the first step in the sequence.  \n\nThe minimum rest time is 1 millisecond; the maximum rest time is 1 day (86400 seconds). The instrument current and voltage limit are set to zero A, and maximum voltage respectively.",
+                "figure1": "images/createCyclerSeq2.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Step 3.  In the Step Configuration area in the center of the window, select the Charge step (CC). Select the Charging Mode. Enter values for the charging Current, the Max Battery Voltage, the Condition Type, and the stopping Current. \n\nIf you are programing a CV charge step you will need to specify the Charging Voltage and the Current limit (in place of the charging Current, the Max Battery Voltage). \n\nThen select Insert Left. This places the Discharge step as the first step in the sequence. Select Apply Waveform to apply the waveform to the opened Profile. ",
+                "figure1": "images/createCyclerSeq3.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Step 1.  In the Build Waveform area in the center of the window, select the Ramp waveform. \n\nStep 2.  Update the settings information for the waveform. \nRepeat Count - the number of times the waveform repeats is set to 3. \n\nStep 3.  Select the Modify button to insert the waveform into the Build Waveform area. \nNote that you can select the Delete buttons to delete any steps. \n    Step 1. Select the step to delete. \n    Step 2. Select the Delete button. The remaining steps will occupy the space left by the deleted step. ",
+                "figure1": "images/createCyclerSeq3.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "Step 4.  Select the Apply Sequence button to apply the battery cycle function. The following figure shows the what appears on the display when the sequence is run.",
+                "figure1": "images/batteryCycleDisplay.png",
+                "step_desc": "The display shows the three sequence steps: discharge, rest, and charging. The graph displays the current (I) and voltage V) values on the left side of the graph, and the Capacity values in Ah on the right side of the graph."
+              },
+              {
+                "step_title": "\nExport the Cycle Sequence",
+                "step_description": "To export the cycle sequence: \n\nStep 1.   Click on the Export button in the lower left of the Edit Battery Sequence dialog to export the sequence file.",
+                "figure1": "images/exportSequence.png",
+                "step_desc": "Step 2.   Under Export File Details accept the default export path, or select Browse to specify a different location where you will save the file. Additionally, you can specify the item to append to the filename (date, time, or file number). Sequence files have the file extension .json. \n\nStep 3.  Select OK. After the sequence has been saved, a message will indicate that the sequence was successfully saved to the specified location."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Save and Load the Instrument State",
+          "content": {
+            "title": "Save and Load the Instrument State",
+            "description": "This topic explains about Saving and Load the Instrument State.",
+            "steps": [
+              {
+                "step_title": "Saving the State",
+                "step_description": "Saved state information includes all operation, connection, and Arb waveforms. \n\nStep 1.  Select the Save State menu item under the Disc icon to save the instrument state.",
+                "figure1": "images/savestateItem.png",
+                "step_desc": "The Save State command applies to all operations. The saved state information can later be retrieved to return the application to the same state it was in when the file was saved. A state save does not save the data on the displays.  \n\nStep 2.   Select a directory and filename in which to save the state. The file format extension is \".state\" for state data. "
+              },
+              {
+                "step_title": "\nLoading a State",
+                "step_description": "Step 1.  Select the Load State menu item under the Folder icon to load a previously saved state.",
+                "figure1": "images/loadstateItem.png",
+                "step_desc": "The Load State command applies to all operations. This returns the application to the same state it was in when the file was saved. Because connection settings are saved in the state file, you must be connected to the same instrument when loading the file, otherwise the file will not load.  \n\n Step 2.   Select the directory and filename to load the state. "
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Exporting Display Data",
+          "content": {
+            "title": "Exporting Display Data",
+            "description": "The export data function lets you export information from selected traces to a .csv file. ",
+            "steps": [
+              {
+                "step_title": "Step 1.",
+                "step_description": "In the lower right corner of the display, select the Export icon to save the display to a file. Click the CSV item. \n\nThe Export Data command applies to all functions.",
+                "figure1": "images/exportIcon.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "Step 2.",
+                "step_description": "Specify the file details, export options, and trace selections. ",
+                "figure1": "images/exportBatteryChartData.png",
+                "step_desc": "Export File Details - Accept the default export path, or select Browse to specify a different location where you will save the file. Additionally, you can specify the item to append to the filename (date, time, or file number). \n\nExport Options - Specify the data separator (comma, semicolon, or tab), and the data you would like to export (all data, or data on chart). \n\nTrace Selection - Select the output traces from the active traces and the instrument that you wish to export. NOTE: The N7900 Advanced Power System and RP7900 Regenerative Power System only contains waveform data in Channel 1."
+              },
+              {
+                "step_title": "Step 3.",
+                "step_description": "Select a directory and filename in which to save the display data. The file format extension is \".csv\" for comma-separated values. \n\nThe saved .csv file may be opened using a number of applications such as Microsoft Excel or a text editor.",
+                "figure1": "images/exportedFileExample.png",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Printing the Display",
+          "content": {
+            "title": "Exporting a Screenshot",
+            "description": "The export screen shot function exports the entire display to the clipboard or to a file. ",
+            "steps": [
+              {
+                "step_title": "Step 1.",
+                "step_description": "In the lower right corner of the display, select the Export icon to export the display. \n\nThe Export ScreenShot command applies to all functions. ",
+                "figure1": "images/exportIcon.png",
+                "step_desc": "When you select the clipboard icons, you can send the display data to the clipboards as is, or send the display data to the clipboard with a white background. "
+
+              },
+              {
+                "step_title": "Step 2.",
+                "step_description": "Select the File icon  to send the entire display to a file. You can then send the file to your printer.",
+                "figure1": "images/exportFileSelections.png",
+                "step_desc": "Export File Details - Specify a filename and file type (png, jpeg, or bmp). Specify any items to append to the filename (date, time, or file number). \n\nUnder Export Path, accept the default export path, or select the folder icon to specify a different location to save the file. Check Invert Color to send display data to the file with a white background. "
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "topic": "Reference Information",
+      "subTopic": [
+        {
+          "topic": "CD Arb Waveforms",
+          "content": {
+            "title": "CD Arb Waveforms",
+            "description": "The available CD Arb waveforms and their associated settings are as follows:",
+            "steps": [
+              {
+                "step_title": "Square",
+                "step_description": "Amplitude - the amplitude or peak value \nOffset - the offset from zero \nFrequency - the frequency of the square wave \nDuty - the duty cycle of the square wave\nPhase - the start phase angle of the square wave\nRepeat Count - the number of times the waveform repeats",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+
+              },
+              {
+                "step_title": "Ramp",
+                "step_description": "Start Amplitude - the amplitude before the ramp \nEnd Amplitude - the amplitude after the ramp \nDelay - the delay after the trigger is received but before the ramp starts \nRamp Time - the time that the output ramps up \nEnd Time - the time the output remains at the end amplitude \nRepeat Count - the number of times the waveform repeats",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "Trapezoid",
+                "step_description": "Start/End Amplitude - the amplitude before and after the trapezoid \nPeak Amplitude - the peak amplitude \nStart Time - the time before the trapezoid ramps up \nRise Time - the time that the trapezoid ramps up \nPeak Time - the time at the peak amplitude \nFall Time - the time that the trapezoid ramps down \nEnd Time - the time the output remains at the end amplitude \nRepeat Count - the number of times the waveform repeats",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "StairStep",
+                "step_description": "Start Amplitude - the amplitude before the staircase \nSingle Step Amplitude - the amplitude of a single step \nStep Time - the time to complete all of the steps \n# of Steps - the total number of staircase steps \nRepeat Count - the number of times the waveform repeats",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+              },
+              {
+                "step_title": "Pulse",
+                "step_description": "Start/End Amplitude - the amplitude before and after the pulse \nDelay - the delay after the trigger is received but before the pulse starts \nPulse Time - the time (width) of the pulse \nEnd Time - the time the output remains at the end amplitude \nRepeat Count - the number of times the waveform repeats",
+                "figure1": "images/blank.jpg",
+                "step_desc": ""
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Resistance Measurement",
+          "content": {
+            "title": "Resistance Measurement",
+            "description": "The internal battery resistance is calculated from measurements that are made during the charge and discharge operations. The battery is pulsed at a predetermined interval in order to make the measurements from which the internal resistance is calculated. \n\nThe internal resistance measurements are calculated as follows: \n\nInternal resistance =(Vt – Voc )/(Imax – Imin) \n\nwhere \nVt - Voc = change in battery voltage \nImax - Imin= change in charging current",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "Zooming in on the time axis lets you view the rest and charging pulse during which the measurements are made. The example given is for a charge operation. ",
+                "figure1": "images/restAndChargingpulse.png",
+                "step_desc": "1. This is the rest time prior to the charging pulse for the resistance measurement. This is a user setting. \n2. This is the pulse width of the charging pulse for the resistance measurement. This is a user setting. \n3. This is the off-time for the charging pulse. It is set to five times the width of the charging pulse. Note that after the off-time ends, the battery is briefly shorted before the charging operation continues. \n4. This is the Imin value, which is the last point in the rest time. \n5. This is the Voc value, which is the last voltage point in the rest time. \n6. This is the Imax value, which is the last point in the charging pulse. \n7. This is the Vt value, which is the last voltage point in the charging pulse. \n\nThere are a number of parameters that you can program to configure the charging pulse upon which resistance measurements are made. Refer to the Charge Profile Settings. These include the rest time and the current pulse with. \n\nHowever there is a maximum value that you can program for the pulse width. This is dependent on a number of additional profile settings that fix the maximum value of the pulse width. These include: number of profile steps, charge current, and capacity rating."
+
+              },
+              {
+                "step_title": "",
+                "step_description": "As an example of 200 profile steps, with a constant charge current of 5 A with a capacity rating of 1 Ah, the maximum pulse width is calculated as follows: \n\n    Number of profile steps                                                       200 \n    Charge current in Amps                                                       5 \n    Capacity rating in Amp-hours                                             1 \n    Step capacity = capacity rating/profile steps                  0.005 \n    Pulse capacity = step capacity/20                                    0.00025 \n    Pulse time = (pulse capacity*3600)/charge current      0.18 \n\nSo, the maximum allowable value for the charging pulse width in this example is 0.18 seconds. \n\nWhen all resistance measurements are complete, you can refer to the profile file to see the actual resistance measurement for each step in the profile.",
+                "figure1": "images/sampleProfileFile.png",
+                "step_desc": ""
+
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Navigation Controls",
+          "content": {
+            "title": "Display Navigation Controls",
+            "description": "",
+            "steps": [
+              {
+                "step_title": "Mouse",
+                "step_description": "• On the Display \n\nClick and hold down the mouse on any area of the display. The display moves horizontally or vertically as you move the mouse. \n\nWithin the Arb Waveform function, use the mouse to select and move the individual waveforms in the Arb sequence.",
+                "figure1": "images/blank.jpg",
+                "step_desc": "• Mouse wheel \n\nMoving the mouse wheel changes the horizontal time/divison of the display. If one of the traces has been selected by clicking on it, moving the wheel changes the vertical gain of the trace. "
+              },
+              {
+                "step_title": "\nDisplay Reference",
+                "step_description": "These three arrows let you set the horizontal reference of the display.",
+                "figure1": "images/displayReference.png",
+                "step_desc": "Click the left arrow to move the horizontal reference point to the left side of the display.\n\nClick the right arrow to move the horizontal reference point to the right side of the display.\n\nClick the center arrow to center the horizontal reference point. "
+              },
+              {
+                "step_title": "\nData Bar ",
+                "step_description": "The Data bar is located in the lower center of the Scope and Data Logger windows. It represents the acquisition data that has been collected.",
+                "figure1": "images/databar.png",
+                "step_desc": "The yellow part indicates the portion of the data that is visible on the display. \n\nThe gray part represents the data that is not visible. Note that when you get to the end of the data, you can move all of the data off the display. \n\nBrowse controls (<<, <, >, >>) let you traverse the data. "
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Error Log",
+          "content": {
+            "title": "Error Log",
+            "description": "The Error Log tab lists all application errors that occur.",
+            "steps": [
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/errorlog.png",
+                "step_desc": "Errors are filtered as follows:  \n\n        Blue - indicates a low impact error, usually providing instructions on what to do to continue.  \n\n        Yellow - indicates a medium impact error, such as the value entered is outside the acceptable parameter range.  \n\n        Red - indicates a severe impact error, such a when connectivity to an instrument has been lost. \n\nClear clears all errors from the error log."
+              }
+            ]
+          }
+        },
+        {
+          "topic": "Toolbars",
+          "content": {
+            "title": "Toolbars",
+            "description": "This topic explains about the Toolbars and its functions.",
+            "steps": [
+              {
+                "step_title": "Window Control Toolbar",
+                "step_description": "The Window Control toolbar is located on top left of the main window.",
+                "figure1": "images/windowControlToolbar.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/openHelpFile.png",
+                "step_desc": "Open the application's Help file."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/restoreWindow.png",
+                "step_desc": "Restore the Advanced Battery Test and Emulation window into the main BenchVue application. "
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/minimizeApp.png",
+                "step_desc": "Minimize the Advanced Battery Test and Emulation application."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/downsizeApp.png",
+                "step_desc": "Downsize the Advanced Battery Test and Emulation application."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/maximiseApp.png",
+                "step_desc": "Maximize the Advanced Battery Test and Emulation application. "
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/closeApp.png",
+                "step_desc": "Close the Advanced Battery Test and Emulation application.\n\n"
+              },
+              {
+                "step_title": "Graph Toolbar",
+                "step_description": "The Graph toolbar is located directly below the displays. Use the toolbar to control the display.",
+                "figure1": "images/graphtoolbar.png",
+                "step_desc": ""
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/flip.png",
+                "step_desc": "Flips the direction of the State of Charge graph"
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/areazoom.png",
+                "step_desc": "Area zoom. Use the mouse to draw a frame around the desired area of the graph to zoom in on."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/zoomIn.png",
+                "step_desc": "Zoom in on the center of the graph."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/zoomBack.png",
+                "step_desc": "Zoom back out of the graph. "
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/autoscale.png",
+                "step_desc": "Autoscale the display so that all traces fit into the graph."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/autoscaleX.png",
+                "step_desc": "Autoscale the trace on the X axis."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/autoscaleY.png",
+                "step_desc": "Autoscale the trace on the Y axis."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/autoscaleRightside.png",
+                "step_desc": "Autoscale new data onto the right side of the graph. The chart scrolls to have the right edge show the most recent data. Click the down arrow next to this icon to autoscale the x-axis, y-axis, or both when appending new data.\n\n"
+              },
+              {
+                "step_title": "Application Toolbar",
+                "step_description": "The Application toolbar is located on the bottom of the application window.",
+                "figure1": "images/applicationtoolbar.png",
+                "step_desc": "Autoscale the trace on the Y axis."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/IOconfiguration.png",
+                "step_desc": "IO Configuration - Specifies an IO timeout in milliseconds. \nAbout - Displays information about the application."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/savesInstrumentState.png",
+                "step_desc": "Saves an instrument state."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/loadsInstrumentState.png",
+                "step_desc": "Loads an instrument state."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/errorlogIcon.png",
+                "step_desc": "View application messages, errors and warnings. See Error Log."
+              },
+              {
+                "step_title": "",
+                "step_description": "",
+                "figure1": "images/exportSSIcon.png",
+                "step_desc": "Export screen shots to graphics files or export measurement data to .csv files. \nSee Exporting Screenshot and Exporting Data."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}          
+
+    
